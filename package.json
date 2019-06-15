@@ -1,0 +1,22 @@
+{
+  "name": "react-file-uploader-with-hooks",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:MudOnTire/react-file-uploader-with-hooks.git",
+  "author": "MudOnTire <895157882@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.5"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.19.1"
+  }
+}
