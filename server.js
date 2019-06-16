@@ -13,7 +13,7 @@ app.post('/upload', (req, res) => {
   }
 
   const file = req.files.file;
-  const targetPath = path.resolve(__dirname, `client/public/uploads/`);
+  const targetPath = path.resolve(__dirname, `public/uploads/`);
 
   const handleUploaded = () => {
     file.mv(path.resolve(targetPath, file.name), err => {
@@ -28,7 +28,7 @@ app.post('/upload', (req, res) => {
     if (exists) {
       handleUploaded();
     } else {
-      fs.mkdir(targetPath, (err) => {
+      fs.mkdir(targetPath, { recursive: true }, (err) => {
         if (err) {
           return res.status(500).json({ msg: err.message });
         } else {
@@ -39,5 +39,7 @@ app.post('/upload', (req, res) => {
   });
 
 });
+
+app.use(express.static('public'));
 
 app.listen(5050, () => console.log('server started'));
